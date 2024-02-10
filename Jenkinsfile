@@ -27,7 +27,7 @@ pipeline {
         stage('SonarQube analysis') {
             steps {
                 echo 'Analyzing source code...'
-                withSonarQubeEnv('My SonarQube Server') {
+                withSonarQubeEnv('Sonar') {
                     sh './mvnw sonar:sonar'
                 }
             }
