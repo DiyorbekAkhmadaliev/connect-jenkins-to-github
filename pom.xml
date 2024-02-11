@@ -13,6 +13,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>jenkins-demo</name>
     <description>jenkins-demo</description>
+    <packaging>war</packaging>
     <properties>
         <java.version>17</java.version>
     </properties>
