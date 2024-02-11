@@ -32,5 +32,23 @@ pipeline {
                 }
             }
         }
+
+        stage("Quality Gate"){
+            steps{
+                timeout(time: 1, unit: 'HOURS') {
+                    waitForQualityGate abortPipeline: true
+                }
+            }
+        }
+
+        stage('Deployment') {
+            steps {
+                echo 'Deploying to Tomcat...'
+                deploy adapters: [tomcat8(credentialsId: 'tomcat', path: '', url: 'http://localhost:6060/')], contextPath: '', war: '**/*.war'
+            }
+        }
+
+
+
     }
 }
